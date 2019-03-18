@@ -1,0 +1,31 @@
+*{margin: 0px;padding: 0px;border: none;}
+body{background: #EFEFEF;}
+a{text-decoration: none;}
+
+.header{height: 130px;margin: 0 auto;width: 1000px;overflow: hidden;}
+.header_logo{height: 80px;width: 500px;background: url(../img/sprite.png) no-repeat 0 0;margin:25px 0;float: left;}
+.header_span{height: 80px;color: #333333;font-size: 20px;line-height: 80px;float: right;margin: 25px 0;}
+.mian{height: 840px;width: 1000px;background: #FFFFFF;margin: 0 auto;border-radius: 8px;box-shadow: 0 3px 3px #cbc9c9}
+.mian_h2{height:100px ;width: 100%;line-height: 100px;text-align: left;color: #ca5252;padding: 0 80px;}
+
+.formWrap{height: 72px;width: 100%;margin-top: 15px;position: relative;}
+.labelbox{height: 45px;line-height: 45px;width: 340px;text-align: right;float: left;font-size: 16px;color: #333;}
+#account{height: 45px;width: 200px;border: 1px solid #ddd;float: left;}
+#mail{height: 45px;width: 100px;margin-left: 8px;border: 1px solid #ddd;float: left;}
+
+
+#password{height: 45px;width: 320px;border: 1px solid #ddd;float: left;}
+#comfirm,#phone{height: 45px;width: 320px;border: 1px solid #ddd;float: left;}
+.i_phone{height: 45px;width: 320px;border: 1px solid #ddd;float: left;position: absolute;top: 0px;left: 340px}
+#national{height: 45px;width: 50px;}
+#i_phone_number{height: 45px;width: 262px;}
+#test{height: 45px;width: 190px;border: 1px solid #ddd;float: left;}
+.labelbox2{height: 45px;width: 340px;float: left;}
+#zhucebox{height: 45px;width: 320px;background: #DF9797;font-size: 20px;float: left;text-align: center;line-height: 45px;cursor: pointer;color: white;}
+#tipbox{height: 45px;color: #ddd;width: 320px;font-size: 12px;float: left;}
+.footer{height: 80px;width: 100%;text-align: center;color: #b1b1b1;font-size: 12px;padding-top: 30px}
+.footer a{padding:0 6px;cursor: pointer;color: #b1b1b1;}
+
+#havetext{height: 47px;width: 120px;background: #C6E3F9;color: white;text-align: center;line-height: 47px;position: absolute;top: 0px;left: 540px;cursor: pointer;}
+
+

@@ -1,0 +1,51 @@
+*{margin: 0;padding: 0;border: none;}
+body{font-size: 12px;font-family: "微软雅黑";}
+.header{width: 100%;height: 101px;background: white;}
+.header_inner{width: 1000px;height:100px;margin: 0 auto;}
+.kaolalogo{width: 219px;height: 42px;float: left;margin-top:30px ;}
+.topimg{height: 100px;width: 504px;float: right;background: url(../picture/topimg.png) no-repeat 0 -5px;}
+
+
+.main{height: 520px;width: 100%;}
+.main-inner{height: 520px;width: 1000px;margin: 0 auto;position: relative;}
+.lg-img{position: absolute;top: 109px;left: 10px;width: 400px;height: 280px;}
+
+.login-table{height: 390px;width: 500px;position: absolute;top: 80px;right: 20px;border: 1px solid #EAEAEA;}
+.table-left{height: 350px;width: 290px;border-bottom: 1px solid #EAEAEA;padding: 0px 30px;position: absolute;left: 0;top: 0px;}
+.table-right{height: 390px;width: 150px;border-left:1px solid #EAEAEA ;position: absolute;top: 0px;right: 0px;}
+
+
+.table-footer{height: 40px;width: 350px;position: absolute;top: 350px;left: 0;}
+
+.table-left-inner{height: 350px;width: 100%;}
+.title{width: 100%;height: 60px;line-height: 60px;}
+.input-text,.input-password{height: 34px;width: 100%;border: 1px solid #EAEAEA;margin-top: 20px;line-height: 34px;}
+.input-text-1,.input-password-1{height: 20px;width: 20px;float: left;background: url(../picture/navsmallpic1.png)no-repeat;margin: 7px;}
+.input-text-2,.input-password-2{height: 33px;width: 219px;float: left;}
+.input-text-3,.input-password-3{height: 20px;width: 20px;background: url(../picture/navsmallpic1.png)no-repeat;float: left;margin: 7px;/*display: none;*/}
+.tishi{height: 20px;width: 100%;color: red;display: none;line-height: 20px;}
+.input-check{height: 34px;width: 100%;line-height: 34px;margin-top: 10px;position: relative;}
+.input-check-1{height: 20px;width: 100px;padding: 0 7px;}
+.input-check-2{height: 20px;width: 50px;padding: 0 7px;float: right;position: absolute;top: 0px;right: 0px;}
+.denglu{height: 40px;width: 100%;background: darkred;color: white;line-height: 34px;text-align: center;margin-top: 20px;font-size: 20px;cursor: pointer;}
+.denglu:hover{background: red;}
+.zhuce{height: 20px;width: 100%;text-align: center;margin-top: 20px;}
+
+
+
+.footer{height: 230px;width: 100%;}
+.footer-2{height: 130px;width: 100%;background: white;position: relative;}
+.tit{font-size: 18px;font-weight: 700;display: block;}
+.desc{font-size: 14px;line-height: 22px;display: block;}
+.guidelist{width: 1090px;height: 215px;margin: 0 auto;padding-top: 40px;}
+.clearfix li{float: left;height: 128px;border-left: 1px solid #EAEAEA;width: 110px;padding-left: 25px;}
+.clearfix li a{color: black;}
+.focuson{height: 32px;margin-top: 15px;}
+.focuson span{display: inline-block;vertical-align:middle;}
+.itm-1,.itm-2,.itm-3{height: 32px;width: 33px;display: inline-block;margin: 0 5px;}
+.itm-1{background: url(../img/icon1_8.png) no-repeat -751px -69px;}
+.itm-2{background: url(../img/icon1_8.png) no-repeat -796px -69px;}
+.itm-3{background: url(../img/icon1_8.png) no-repeat -840px -69px;}
+.telphone-ewm{text-align: center;width: 135px;height: 128px;}
+.bottomTxt{height: 130px;width: 1090px;color: black;text-align: center;margin: 0 auto;}
+.bottomTxt a{color: black;}

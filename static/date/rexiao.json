@@ -1,0 +1,32 @@
+[
+ 	{	 
+		"id":"1",
+		"goodsimg":"picture/goods (1).jpg",
+		"name":"MONTBLANC 万宝龙 男士钱包",
+		"descript":"放缓脚步，享受生活",
+		"price":"￥123",
+		"country":"picture/guojia1.png",
+		"discunt":"6.5折",
+		"lastprice":"￥312"
+	},
+	{	 
+		"id":"2",
+		"goodsimg":"picture/goods (2).jpg",
+		"name":"MONTBLANC 万宝龙 男士钱包",
+		"descript":"放缓脚步，享受生活",
+		"price":"￥123",
+		"country":"picture/guojia2.png",
+		"discunt":"6.5折",
+		"lastprice":"￥312"
+	},
+	{	 
+		"id":"3",
+		"goodsimg":"picture/goods (3).jpg",
+		"name":"MONTBLANC 万宝龙 男士钱包",
+		"descript":"放缓脚步，享受生活",
+		"price":"￥123",
+		"country":"picture/guojia1.png",
+		"discunt":"6.5折",
+		"lastprice":"￥312"
+	}
+ ]

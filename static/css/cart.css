@@ -1,0 +1,44 @@
+*{margin: 0;padding: 0;border: none;}
+body{font-size: 12px;font-family: "微软雅黑";}
+a{text-decoration: none;}
+ul li{list-style: none;}
+img{border: none;}
+
+/*topnav-left*/
+.header{width: 100%;color:  #ccc;}	
+.header-1{width: 100%;height: 30px;border-bottom:1px solid #EDEDEE;background: #F2F2F2;}
+.topnav{width: 1090px;margin: 0 auto;}
+.topnav-left-1{float: left;height: 30px;line-height:30px;color: black;}
+.topnav-left-1 a{text-decoration: none;color: black;}
+.topnav-left-2{height: 30px;float: left;margin-left:10px;line-height: 30px;position: relative;}
+.topnav-left-2 #tel-img{float: left ;margin-right: 10px;}
+.topnav-left-2 a{text-decoration: none;color: black;float: left;}
+#tel-img{height: 20px;width: 12px;margin-top: 5px;background: url(../img/producticons.png) no-repeat 0 -64px;}
+#tel-ewmimg{padding: 5px 5px 0;position: absolute;left:265px;top: 35px;text-align: center;border: 1px solid #666;display: none;z-index: 10000;background: white;}
+#tel-ewmimg p{color: red;}
+.topnav-right{float: right;height: 30px;line-height:30px;}
+
+/*topnav-right*/
+.topnav-left-1 a:hover{color: red;}
+.topnav-left-2 a:hover{color: red;}
+.topnav-right{height: 30px;line-height: 30px;float: right;position: relative;}
+.qiandao{height:20px;width: 12px;background: url(../img/producticons.png)  no-repeat 0 -64px;margin-top:5px ;float: left;}
+.topnav-right ul li{float: left;height: 30px;line-height: 30px;}
+.topnav-right ul li:hover{background: white;}
+.topnav-right ul li a{color: black;margin: 10px;}
+.topnav-right ul li a:hover{color: red;}
+.person-home-inner-1,.person-home-inner-2,.person-home-inner-3{border: 1px solid #EDEDEE;display: none;background: white;z-index: 10000;position: absolute;top: 30px;width: 90px;padding: 0 5px;}
+.person-home-inner-1{left: 850px;}
+.person-home-inner-2{left: 925px;}
+.person-home-inner-3{left:1173px;}
+.person-home-inner-1 a,.person-home-inner-2 a,.person-home-inner-3 a{height: 28px;display: block;line-height: 28px;white-space: nowrap;color: black;}
+.small-pic-1{background: url(../img/icon1_8.png)no-repeat 0 -290px;height: 14px;width: 17px;position: absolute;top: 7px;left: 0px;}
+.small-pic-2{background: url(../img/icon1_8.png)no-repeat 0 -324px;height: 14px;width: 20px;position: absolute;top: 35px;left: 0px;}
+.header-2-inner{height: 100px;width: 1090px;margin: 0 auto;position: relative;}
+.logo{position: absolute;top:24px;left: 0;}
+
+.warename{position: relative;left: 3%}
+.price{position: relative;left: 28%}
+.number{position: relative;left: 37%}
+.total_1{position: relative;left: 49%}
+#cross{position: relative;left: 55%;color: red}

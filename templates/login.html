@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录—网易考拉海外购</title>
+		<meta name="keywords" content="网易考拉海购,海淘,跨境购,代购,进口,跨境电商,海外直邮"/>
+		<meta name="description" content="网易考拉海购-网易旗下_正品低价_海外直采_海外直邮.网易考拉是国内领先的跨境购物商城，轻松购遍海外进口母婴，进口美食 ，进口美妆、进口电子数码，更多产品正陆续推出。网易考拉海购-安全、放心的跨境购物网站，官方认证，正品保证。"/>
+		<link rel="stylesheet" href="{% static 'css/login.css' %}" />
+		<script type="text/javascript" src="{% static 'js/jquery-1.12.3.js' %}" ></script>
+		<script type="text/javascript" src="{% static 'js/login.js' %}" ></script>
+		<script src="{% static 'js/jquery.cookie.js' %}" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="header">
+			<div class="header_inner">
+				<div class="kaolalogo">
+					<a href=""><img src="{% static 'img/logo.jpg' %}"/></a>
+				</div>
+				<div class="topimg"></div>
+			</div>
+		</div>
+		<div class="main">
+			<div class="main-inner">
+				<img src="{% static 'picture/login-mian.png' %}" class="lg-img"/>
+				<div class="login-table">
+					<div class="table-left">
+						<div class="table-left-inner">
+							<h2 class="title">登陆网易邮箱账号</h2>
+                            <form action="{% url 'app:login' %}" method="post">
+                                {% csrf_token %}
+                                <div class="input-text">
+                                    <div class="input-text-1"></div>
+                                    <input type="text" placeholder="请输入网易邮箱账号" value="" class="input-text-2" name="account"/>
+                                    <div class="input-text-3" style="display: none;"></div>
+                                </div>
+                                <div class="input-password">
+                                    <div class="input-password-1"></div>
+                                    <input type="password" placeholder="请输入你的密码" class="input-password-2" name="password"/>
+                                    <div class="input-password-3" style="display: none;"></div>
+                                </div>
+                                <div class="tishi">
+                                    阿斯顿发生
+                                </div>
+                                <div class="input-check">
+                                    <div class="input-check-1">
+                                        <input type="checkbox" checked="checked" class="input-check-1-1"/>
+                                        <span style="color: #999999;">十天内免登陆</span>
+                                    </div>
+                                    <div class="input-check-2">
+                                        <a href="" style="color: #999999;">忘记密码</a>
+                                    </div>
+                                </div>
+
+                                <input class="denglu" type="submit" value="登&nbsp;&nbsp;陆">
+
+
+                            </form>
+							<div class="zhuce">
+                                <span style="color: red">{{ error }}</span>
+								<span style="color: #999999;">没有邮箱账号？<a href="">立即注册</a></span>
+							</div>
+						</div>
+					</div>
+					<div class="table-footer">
+					</div>
+					<div class="table-right">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="footer-2">
+				<div class="bottomTxt">
+					<p>
+						<a href="#">About NetEase</a> - <a href="#">公司简介</a> - <a href="#">联系方法</a> - <a href="#">友情链接</a> - <a href="#">招聘信息</a> - <a href="#">客户服务 </a> - <a href="#">隐私政策</a> - <a href="#">网络营销</a> - <a href="#">网络地图</a> - <a href="#">网易考拉海购</a>
+					</p>
+					<p>
+						<a class="spanW" href="#">
+							<img src="{% static 'picture/f28aa8ee818a42bf832341f605eccefb.png' %}"/>
+						</a>
+						浙公网安备 33010002000066号&nbsp;&nbsp;增值电信业务经营许可证：浙B2-20090185-3&nbsp;&nbsp;网络文化经营许可证：浙网文[2016]0155-055号&nbsp;&nbsp;网络文化经营许可证：浙网文[2016]0155-055号
+					</p>
+					<p>
+						<span class="spanWrap">
+							<img src="{% static 'picture/d720d83b55a04b6f932ea845c673c5bf.png' %}"/>
+						</span>
+						<span class="spanWrap">
+							<img src="{% static 'picture/guohui.jpg' %}">
+						</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

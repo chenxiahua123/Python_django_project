@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>网易用户中心</title>
+    <meta name="keywords" content="网易考拉海购,海淘,跨境购,代购,进口,跨境电商,海外直邮"/>
+    <meta name="description"
+          content="网易考拉海购-网易旗下_正品低价_海外直采_海外直邮.网易考拉是国内领先的跨境购物商城，轻松购遍海外进口母婴，进口美食 ，进口美妆、进口电子数码，更多产品正陆续推出。网易考拉海购-安全、放心的跨境购物网站，官方认证，正品保证。"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
+    <script src="{% static 'js/jquery-1.12.3.js' %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static 'js/jquery.cookie.js' %}" type="text/javascript" charset="utf-8"></script>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.1/css/bootstrap.css" rel="stylesheet">
+    <script src="{% static 'js/register.js' %}" type="text/javascript" charset="utf-8"></script>
+
+
+    <style type="text/css">
+        .b-i {
+            height: 72px;
+            width: 24px;
+        }
+
+        .b-i i {
+            height: 22px;
+            width: 22px;
+            float: left;
+            padding: 0 2px 0 0;
+            background: url({% static 'img/sprite.png' %}) no-repeat -65px -102px;
+            margin-bottom: 20px;
+        }
+
+        .b-p {
+            line-height: 20px;
+            overflow: hidden;
+            word-break: break-all;
+            float: left;
+            margin-top: 10px;
+        }
+
+        .popb1, .popb2 {
+            color: red;
+            float: left;
+            margin-left: 10px;
+            width: 280px;
+            height: 45px;
+            max-height: 60px;
+            overflow: hidden;
+            font-size: 12px;
+            float: left;
+            display: none;
+        }
+
+        .popb-i {
+            height: 22px;
+            width: 22px;
+            float: left;
+            padding: 0 2px 0 0;
+            background: url({% static 'img/sprite.png' %}) no-repeat -30px -102px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="header_logo"></div>
+    <div class="header_span">
+        <span>已有账号？去<a href="login.html" style="color: darkred;">登录</a></span>
+    </div>
+</div>
+<div class="mian">
+    <h2 class="mian_h2">注册账号</h2>
+    <form action="{% url 'app:register' %}" method="post">
+        {% csrf_token %}
+        <div class="formWrap">
+
+            <label for="account" class="labelbox">账号：</label>
+            <input id="account" class="form-control" type="text" placeholder="6-18位字母数字组合" name="account"/>
+            <select id="mail" name="mail">
+                <option>@163.com</option>
+                <option>@126.com</option>
+                <option>@yeah.net</option>
+            </select>
+            <table class="popb1">
+                <tbody>
+                <tr>
+                    <td class="b-i"><i></i></td>
+                    <td class="b-p">请用字母、数字或下划线命名</td>
+                </tr>
+                <span style="color: red"></span>
+                </tbody>
+            </table>
+            <span class="popb2"><i class="glyphicon glyphicon-ok"></i></span>
+            <br/>
+
+        </div>
+
+        <div class="formWrap">
+            <label for="password" class="labelbox">密码：</label>
+            <input id="password" type="password" placeholder="6-18位密码，区分大小写" name="password"/>
+            <table class="popb1">
+                <tbody>
+                <tr>
+                    <td class="b-i"><i></i></td>
+                    <td class="b-p">密码为6-18位数字字母组合</td>
+                </tr>
+                </tbody>
+            </table>
+            <span class="popb2"><i class="glyphicon glyphicon-ok" style="color: #4cae4c;size: 20px"></i></span>
+            <br/>
+        </div>
+
+        <div class="formWrap">
+            <label for="comfirm" class="labelbox">确认密码：</label>
+            <input id="comfirm" type="password" placeholder="再次输入密码"/>
+            <table class="popb1">
+                <tbody>
+                <tr>
+                    <td class="b-i"><i></i></td>
+                    <td class="b-p">两次输入密码不一致，请确认重新输入密码</td>
+                </tr>
+                </tbody>
+            </table>
+            <span class="popb2"><i class="glyphicon glyphicon-ok" style="color: #4cae4c;size: 20px"></i></span>
+            <br/>
+        </div>
+
+        <div class="formWrap" style="position:relative;">
+            <label for="phone" class="labelbox">手机号：</label>
+            <input id="phone" type="text" placeholder="11位手机号" style="display:block" name="phone"/>
+            <table class="popb1">
+                <tbody>
+                <tr>
+                    <td class="b-i"><i></i></td>
+                    <td class="b-p">请输入有效的手机号</td>
+                </tr>
+                </tbody>
+            </table>
+            <span class="popb2"><i class="glyphicon glyphicon-ok" style="color: #4cae4c;size: 20px"></i></i></span>
+            <br/>
+            <div class="i_phone" style="display:none;">
+                <select id="national">
+                    <option>美国</option>
+                    <option>英国</option>
+                    <option>德国</option>
+                    <option>意大利</option>
+                    <option>比利时</option>
+                    <option>奥地利</option>
+                    <option>澳大利亚</option>
+                    <option>日本</option>
+                    <option>韩国</option>
+                    <option>俄罗斯</option>
+                    <option>朝鲜</option>
+                </select>
+                <input id="i_phone_number" type="text" placeholder="手机号"/>
+                <br/>
+            </div>
+        </div>
+
+        <div class="formWrap" style="position:relative;">
+            <label for="test" class="labelbox">验证码：</label>
+            <input id="test" type="text" placeholder="请输入验证码"/><br/>
+            <div id="havetext">获取验证码</div>
+            <table class="popb1">
+                <tbody>
+                <tr>
+                    <td class="b-i"><i></i></td>
+                    <td class="b-p">请输入正确的验证码</td>
+                </tr>
+                </tbody>
+            </table>
+            <span class="popb2"><i class="glyphicon glyphicon-ok" style="color: #4cae4c;size: 20px"></i></span>
+            <br/>
+        </div>
+
+        <div class="formWrap">
+            <div class="labelbox2">&nbsp;</div>
+            <input type="submit" value="注册" class="zhuce">
+        </div>
+
+        <div class="formWrap">
+            <div class="labelbox2">&nbsp;</div>
+            <div id="tipbox"> 用户注册即代表同意《服务条款》和《网络游戏用户隐私保护和个人信息利用政策》</div>
+        </div>
+
+    </form>
+
+</div>
+<div class="footer">
+    <p class="footTxt1"><a href="#">About NetEase</a> - <a href="#">公司简介</a> - <a href="#">联系方式</a> - <a href="#">OAuth2.0认证</a>
+        - <a href="#">招聘信息</a> - <a href="#">客户服务</a> - <a href="#">相关法律</a> - <a href="#">网络营销</a></p>
+    <p class="footTxt2">网易公司版权所有 ©1997-2016</p>
+</div>
+</body>
+</html>

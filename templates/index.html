@@ -1,0 +1,1425 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>网易考拉海外购</title>
+    <meta name="Keywords" content="网易考拉海购,海淘,跨境购,代购,进口,跨境电商,海外直邮"/>
+    <meta name="Description"
+          content="网易考拉海购-网易旗下_正品低价_海外直采_海外直邮.网易考拉是国内领先的跨境购物商城，轻松购遍海外进口母婴，进口美食 ，进口美妆、进口电子数码，更多产品正陆续推出。网易考拉海购-安全、放心的跨境购物网站，官方认证，正品保证。"/>
+    <style>
+        html, body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .banner .swiper-container {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .banner .swiper-container .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+
+    </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/swiper.min.css' %}">
+    <script src="{% static 'js/jquery-1.12.3.js' %}" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/swiper.jquery.min.js' %}"></script>
+
+</head>
+<body>
+
+<div class="header">
+    <div class="header-1">
+        <div class="topnav">
+            <div class="topnav-left-1">
+                考拉欢迎您！
+                {% if token %}
+                    <span id="user-ifo">
+                        <span>{{ user.account }}</span>
+                    </span>
+                    <span><a href="{% url 'app:logout' %}">注销</a></span>
+                {% else %}
+                    <span id="user-ifo">
+							<a href="{% url 'app:login' %}">登录</a>
+							<span>|</span>
+							<a href="{% url 'app:register' %}">免费注册</a>
+                    </span>
+                {% endif %}
+            </div>
+            <div class="topnav-left-2">
+                <div id="tel-img"></div>
+                <a href="#" id="tel-word">手机考拉海购 </a>
+            </div>
+            <div id="tel-ewmimg">
+                <img src="{% static 'picture/2dcode-app3.jpg' %}" width="116px" height="116px">
+                <p><strong>下载app</strong></p>
+                <p><strong>赢取1000元新人大礼包</strong></p>
+            </div>
+
+            <div class="topnav-right">
+                <ul>
+                    <li>
+                        <a href="#"><span class="qiandao"></span>每日签到</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="{% url 'app:cart' %}">我的购物车</a>
+                        <span>|</span>
+                    </li>
+                    <li class="person-home-1">
+                        <a href="#">个人中心</a>
+                        <span>|</span>
+                    </li>
+                    <li class="person-home-2">
+                        <a href="#">客户服务</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="#">游戏充值</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="#">消费者告知书</a>
+                        <span>|</span>
+                    </li>
+                    <li class="person-home-3">
+                        <a href="#">更多</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="person-home-inner-1">
+                <a href="#">我的优惠卷</a>
+                <a href="#" style="border-bottom:1px solid #EDEDEE;">我的考拉豆</a>
+                <a href="#">账户安全</a>
+                <a href="#" style="border-bottom:1px solid #EDEDEE ;">我的实名认证</a>
+                <a href="#">我收藏的商品</a>
+                <a href="#" style="border-bottom:1px solid #EDEDEE ;">我关注的品牌</a>
+                <a href="#">售后管理</a>
+            </div>
+            <div class="person-home-inner-2">
+                <span class="small-pic-1"></span>
+                <a href="#" style="padding-left:15px">联系客服</a>
+                <span class="small-pic-2"></span>
+                <a href="#" style="padding-left:15px">帮助中心</a>
+            </div>
+            <div class="person-home-inner-3">
+                <a href="#">收藏本站</a>
+                <a href="#" style="border-bottom:1px solid #EDEDEE;">新浪微博</a>
+                <a href="#">账户安全</a>
+                <a href="#" style="border-bottom:1px solid #EDEDEE ;">微信公众号</a>
+                <a href="#">易信公众号</a>
+                <a href="#" style="border-bottom:1px solid #EDEDEE ;">招商合作</a>
+                <a href="#">考拉招聘</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-2">
+        <div class="header-2-inner">
+            <a href="index.html" class="logo">
+                <img src="{% static 'img/logo.jpg' %}">
+            </a>
+            <div class="search">
+                <div class="topsearchbox">
+                    <div class="topsearchbox-1">
+                        <input type="text" placeholder="杜蕾斯"
+                               style="height: 34px;width: 458px;line-height: 24px;float:left;display: block;">
+                    </div>
+                    <div class="topsearchbox-2">
+                        <img src="{% static 'img/search_03.jpg' %}">
+                    </div>
+                </div>
+                <div class="resou">
+                    <ul>
+                        <li><a href="">cpb</a><span>|</span></li>
+                        <li><a href="">科颜氏</a><span>|</span></li>
+                        <li><a href="">雅诗兰黛</a><span>|</span></li>
+                        <li><a href="" style="color: red;">美型月饼</a><span>|</span></li>
+                        <li><a href="">花王</a><span>|</span></li>
+                        <li><a href="">洗发水</a><span>|</span></li>
+                        <li><a href="">潘多拉</a><span>|</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="gouwuche">
+                <span id="nav-gouwuche"></span><span style="color: black;font-size: 14px;">购物车</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="nav">
+        <div class="nav-box">
+            <div class="nav-box-left">
+                <div class="nav-box-left-1">
+                    <div class="lineinco">
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </div>
+                    <span>
+								所有分类
+							</span>
+                </div>
+                <div class="nav-box-left-2">
+                    <ul class="nav-box-left-2-ul">
+                        <li class="nav-box-left-2-li">
+                            <img src="{% static 'picture/navsmallpic1.png' %}" class="smallnavpic">
+                            <span>母婴儿童</span>
+                            <span class="nav-span"></span>
+                        </li>
+                        <li class="nav-box-left-2-li">
+                            <img src="{% static 'picture/navsmallpic2.png' %}" class="smallnavpic">
+                            <span>母婴儿童</span>
+                            <span class="nav-span"></span>
+                        </li>
+                        <li class="nav-box-left-2-li">
+                            <img src="{% static 'picture/navsmallpic3.png' %}" class="smallnavpic">
+                            <span>母婴儿童</span>
+                            <span class="nav-span"></span>
+                        </li>
+                        <li class="nav-box-left-2-li">
+                            <img src="{% static 'picture/navsmallpic4.png' %}" class="smallnavpic">
+                            <span>母婴儿童</span>
+                            <span class="nav-span"></span>
+                        </li>
+                        <li class="nav-box-left-2-li">
+                            <img src="{% static 'picture/navsmallpic5.png' %}" class="smallnavpic">
+                            <span>母婴儿童</span>
+                            <span class="nav-span"></span>
+                        </li>
+                        <li class="nav-box-left-2-li">
+                            <img src="{% static 'picture/navsmallpic6.png' %}" class="smallnavpic">
+                            <span>母婴儿童</span>
+                            <span class="nav-span"></span>
+                        </li>
+                        <li class="nav-box-left-2-li">
+                            <img src="{% static 'picture/navsmallpic7.png' %}" class="smallnavpic">
+                            <span>母婴儿童</span>
+                            <span class="nav-span"></span>
+                        </li>
+                        <li class="nav-box-left-2-li">
+                            <img src="{% static 'picture/navsmallpic8.png' %}" class="smallnavpic">
+                            <span>母婴儿童</span>
+                            <span class="nav-span"></span>
+                        </li>
+                        <li class="nav-box-left-2-li">
+                            <img src="{% static 'picture/navsmallpic9.png' %}" class="smallnavpic">
+                            <span>母婴儿童</span>
+                            <span class="nav-span"></span>
+                        </li>
+                        <li class="nav-box-left-2-li">
+                            <img src="{% static 'picture/navsmallpic10.png' %}" class="smallnavpic">
+                            <span>母婴儿童</span>
+                            <span class="nav-span"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bigfire">
+                    <div class="navliinner" style="display: none;">
+                        <div class="navliinner-1">
+                            <div class="navliinner-1-1">
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">奶粉</h3>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">营养辅食</h3>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">童装童鞋</h3>
+                                <a href="">童装</a>
+                                <a href="">儿童配饰</a>
+                                <a href="">童鞋</a>
+                            </div>
+                            <div class="navliinner-1-2">
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">纸尿裤/拉拉裤</h3>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">宝宝用品</h3>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">孕妈必备</h3>
+                                <a href="">童装</a>
+                                <a href="">儿童配饰</a>
+                                <a href="">童鞋</a>
+                            </div>
+                        </div>
+                        <div class="navliinner-2">
+                            <div class="navliinner-2-1" style="background: red;">
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                            </div>
+                            <div class="navliinner-2-2">
+                                <a href=""><h1>立即进入</h1></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navliinner" style="display: none;">
+                        <div class="navliinner-1">
+                            <div class="navliinner-1-1">
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">奶粉</h3>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">营养辅食</h3>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">童装童鞋</h3>
+                                <a href="">童装</a>
+                                <a href="">儿童配饰</a>
+                                <a href="">童鞋</a>
+                            </div>
+                            <div class="navliinner-1-2">
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">纸尿裤/拉拉裤</h3>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">宝宝用品</h3>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">孕妈必备</h3>
+                                <a href="">童装</a>
+                                <a href="">儿童配饰</a>
+                                <a href="">童鞋</a>
+                            </div>
+                        </div>
+                        <div class="navliinner-2">
+                            <div class="navliinner-2-1" style="background: red;">
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                            </div>
+                            <div class="navliinner-2-2">
+                                <a href=""><h1>立即进入</h1></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navliinner" style="display: none;">
+                        <div class="navliinner-1">
+                            <div class="navliinner-1-1">
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">奶粉</h3>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">营养辅食</h3>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">童装童鞋</h3>
+                                <a href="">童装</a>
+                                <a href="">儿童配饰</a>
+                                <a href="">童鞋</a>
+                            </div>
+                            <div class="navliinner-1-2">
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">纸尿裤/拉拉裤</h3>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">宝宝用品</h3>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">孕妈必备</h3>
+                                <a href="">童装</a>
+                                <a href="">儿童配饰</a>
+                                <a href="">童鞋</a>
+                            </div>
+                        </div>
+                        <div class="navliinner-2">
+                            <div class="navliinner-2-1" style="background: red;">
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                            </div>
+                            <div class="navliinner-2-2">
+                                <a href=""><h1>立即进入</h1></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navliinner" style="display: none;">
+                        <div class="navliinner-1">
+                            <div class="navliinner-1-1">
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">奶粉</h3>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">营养辅食</h3>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">童装童鞋</h3>
+                                <a href="">童装</a>
+                                <a href="">儿童配饰</a>
+                                <a href="">童鞋</a>
+                            </div>
+                            <div class="navliinner-1-2">
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">纸尿裤/拉拉裤</h3>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">宝宝用品</h3>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">孕妈必备</h3>
+                                <a href="">童装</a>
+                                <a href="">儿童配饰</a>
+                                <a href="">童鞋</a>
+                            </div>
+                        </div>
+                        <div class="navliinner-2">
+                            <div class="navliinner-2-1" style="background: red;">
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                            </div>
+                            <div class="navliinner-2-2">
+                                <a href=""><h1>立即进入</h1></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navliinner" style="display: none;">
+                        <div class="navliinner-1">
+                            <div class="navliinner-1-1">
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">奶粉</h3>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">营养辅食</h3>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">童装童鞋</h3>
+                                <a href="">童装</a>
+                                <a href="">儿童配饰</a>
+                                <a href="">童鞋</a>
+                            </div>
+                            <div class="navliinner-1-2">
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">纸尿裤/拉拉裤</h3>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">宝宝用品</h3>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">孕妈必备</h3>
+                                <a href="">童装</a>
+                                <a href="">儿童配饰</a>
+                                <a href="">童鞋</a>
+                            </div>
+                        </div>
+                        <div class="navliinner-2">
+                            <div class="navliinner-2-1" style="background: red;">
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                            </div>
+                            <div class="navliinner-2-2">
+                                <a href=""><h1>立即进入</h1></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navliinner" style="display: none;">
+                        <div class="navliinner-1">
+                            <div class="navliinner-1-1">
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">奶粉</h3>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">营养辅食</h3>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">童装童鞋</h3>
+                                <a href="">童装</a>
+                                <a href="">儿童配饰</a>
+                                <a href="">童鞋</a>
+                            </div>
+                            <div class="navliinner-1-2">
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">纸尿裤/拉拉裤</h3>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">宝宝用品</h3>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">孕妈必备</h3>
+                                <a href="">童装</a>
+                                <a href="">儿童配饰</a>
+                                <a href="">童鞋</a>
+                            </div>
+                        </div>
+                        <div class="navliinner-2">
+                            <div class="navliinner-2-1" style="background: red;">
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                            </div>
+                            <div class="navliinner-2-2">
+                                <a href=""><h1>立即进入</h1></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navliinner" style="display: none;">
+                        <div class="navliinner-1">
+                            <div class="navliinner-1-1">
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">奶粉</h3>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">营养辅食</h3>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">童装童鞋</h3>
+                                <a href="">童装</a>
+                                <a href="">儿童配饰</a>
+                                <a href="">童鞋</a>
+                            </div>
+                            <div class="navliinner-1-2">
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">纸尿裤/拉拉裤</h3>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">宝宝用品</h3>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">孕妈必备</h3>
+                                <a href="">童装</a>
+                                <a href="">儿童配饰</a>
+                                <a href="">童鞋</a>
+                            </div>
+                        </div>
+                        <div class="navliinner-2">
+                            <div class="navliinner-2-1" style="background: red;">
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                            </div>
+                            <div class="navliinner-2-2">
+                                <a href=""><h1>立即进入</h1></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navliinner" style="display: none;">
+                        <div class="navliinner-1">
+                            <div class="navliinner-1-1">
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">奶粉</h3>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">营养辅食</h3>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">童装童鞋</h3>
+                                <a href="">童装</a>
+                                <a href="">儿童配饰</a>
+                                <a href="">童鞋</a>
+                            </div>
+                            <div class="navliinner-1-2">
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">纸尿裤/拉拉裤</h3>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">宝宝用品</h3>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">孕妈必备</h3>
+                                <a href="">童装</a>
+                                <a href="">儿童配饰</a>
+                                <a href="">童鞋</a>
+                            </div>
+                        </div>
+                        <div class="navliinner-2">
+                            <div class="navliinner-2-1" style="background: red;">
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                            </div>
+                            <div class="navliinner-2-2">
+                                <a href=""><h1>立即进入</h1></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navliinner" style="display: none;">
+                        <div class="navliinner-1">
+                            <div class="navliinner-1-1">
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">奶粉</h3>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">营养辅食</h3>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">童装童鞋</h3>
+                                <a href="">童装</a>
+                                <a href="">儿童配饰</a>
+                                <a href="">童鞋</a>
+                            </div>
+                            <div class="navliinner-1-2">
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">纸尿裤/拉拉裤</h3>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">宝宝用品</h3>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">孕妈必备</h3>
+                                <a href="">童装</a>
+                                <a href="">儿童配饰</a>
+                                <a href="">童鞋</a>
+                            </div>
+                        </div>
+                        <div class="navliinner-2">
+                            <div class="navliinner-2-1" style="background: red;">
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                            </div>
+                            <div class="navliinner-2-2">
+                                <a href=""><h1>立即进入</h1></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navliinner" style="display: none;">
+                        <div class="navliinner-1">
+                            <div class="navliinner-1-1">
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">奶粉</h3>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">营养辅食</h3>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">童装童鞋</h3>
+                                <a href="">童装</a>
+                                <a href="">儿童配饰</a>
+                                <a href="">童鞋</a>
+                            </div>
+                            <div class="navliinner-1-2">
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">纸尿裤/拉拉裤</h3>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="" class="active">爱他美</a>
+                                <a href="">爱他美</a>
+                                <a href="">爱他美</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">宝宝用品</h3>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <a href="">辅泥食</a>
+                                <h3 style="border-bottom: 1px solid #CCCCCC;">孕妈必备</h3>
+                                <a href="">童装</a>
+                                <a href="">儿童配饰</a>
+                                <a href="">童鞋</a>
+                            </div>
+                        </div>
+                        <div class="navliinner-2">
+                            <div class="navliinner-2-1" style="background: red;">
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                                <a href=""><img src="{% static 'picture/navpic.jpg' %}"></a>
+                            </div>
+                            <div class="navliinner-2-2">
+                                <a href=""><h1>立即进入</h1></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-box-right">
+                <ul>
+                    <li><a href="">首页</a></li>
+                    <li><a href="">今日现实购</a></li>
+                    <li><a href="">每日上新</a></li>
+                    <li><a href="">排行榜</a></li>
+                    <li><a href="">国家馆</a></li>
+                    <li><a href="">日本乐天市场</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner">
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {% for wheel in wheels %}
+                    <div class="swiper-slide"><img src="/static/{{ wheel.img }}"></div>
+                {% endfor %}
+
+
+            </div>
+            <!-- Add Pagination -->
+            {#            <div class="swiper-pagination"></div>#}
+            {#            <!-- Add Arrows -->#}
+            {#            <div class="swiper-button-next"></div>#}
+            {#            <div class="swiper-button-prev"></div>#}
+        </div>
+    </div>
+</div>
+
+<div class="mian">
+    <div class="mian-inner">
+        <div class="imgwrap">
+            <a href="">
+                <div class="oneimg-1"></div>
+            </a>
+            <a href="">
+                <div class="oneimg-2"></div>
+            </a>
+            <a href="">
+                <div class="oneimg-3"></div>
+            </a>
+            <a href="">
+                <div class="oneimg-4"></div>
+            </a>
+        </div>
+        <div class="tuijian">
+            <ul>
+                {% for good in goods %}
+                    <li>
+                        <a>
+                            <div class="rcm_goods">
+                                <a href="{% url 'app:shop' good.id%}" id="a_index"><img src="/static/{{ good.img }}"></a>
+                                <div class="rcm_goods_p">{{ good.name }}</div>
+                                <div class="iteminfo">
+                                    <p class="price">{{ good.price }}</p>
+                                    <a href="">69人已评价</a>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                {% endfor %}
+
+            </ul>
+
+        </div>
+    </div>
+
+
+    <div class="goods-show">
+
+        <div class="goods-banner"><a href="detail.html"><img src="{% static 'img/goodsbanner-1.jpg' %}"></a></div>
+        <div class="goods-nav">
+            <div class="goods1-nav-list">纸尿裤</div>
+            <div class="goods1-nav-list">奶粉馆</div>
+            <div class="goods1-nav-list">辅食保健</div>
+            <div class="goods1-nav-list">童鞋童装</div>
+            <div class="goods1-nav-list">孕妈专区</div>
+        </div>
+        <div class="goods-detail" style="display: block">
+            <img src="{% static 'img/goodsbanner-3.jpg' %}">
+        </div>
+        <div class="goods-footer">
+            <a href="" class="goods-more">更多品牌母婴好货</a>
+        </div>
+    </div>
+
+
+    <div class="goods-show">
+        <div class="goods-title">
+            <span class="goods-title-1">美容彩妆</span>
+            <span class="goods-title-2">——————你与十八岁，只相差十分钟——————</span>
+        </div>
+        <div class="goods-banner">
+            <img src="{% static 'img/goodsbanner-2.jpg' %}">
+        </div>
+        <div class="goods-nav">
+            <div class="goods2-nav-list">美容护肤</div>
+            <div class="goods2-nav-list">彩妆工具</div>
+            <div class="goods2-nav-list">身体护理</div>
+            <div class="goods2-nav-list">美丽香薰</div>
+            <div class="goods2-nav-list">男士护肤</div>
+        </div>
+        <div class="goods-detail">
+            <img src="{% static 'img/goodsbanner-5.jpg' %}">
+        </div>
+        <div class="goods-footer">
+            <a href="" class="goods-more">更多品牌美妆好货</a>
+        </div>
+    </div>
+
+    <div class="goods-show">
+        <div class="goods-title">
+            <span class="goods-title-1">服饰鞋包</span>
+            <span class="goods-title-2">——————穿出自己的style，你就是时尚博主——————</span>
+        </div>
+        <div class="goods-banner">
+            <img src="{% static 'img/goodsbanner-3.jpg' %}">
+        </div>
+        <div class="goods-nav">
+            <div class="goods2-nav-list">服饰</div>
+            <div class="goods2-nav-list">包包</div>
+            <div class="goods2-nav-list">鞋子</div>
+            <div class="goods2-nav-list">配件</div>
+            <div class="goods2-nav-list">手表</div>
+        </div>
+        <div class="goods-detail">
+            <img src="{% static 'img/goodsbanner-6.jpg' %}">
+        </div>
+        <div class="goods-footer">
+            <a href="" class="goods-more">更多时尚服饰配饰</a>
+        </div>
+    </div>
+    <div class="goods-show">
+        <div class="goods-title">
+            <span class="goods-title-1">家居生活</span>
+            <span class="goods-title-2">——————家里那么美，宁愿做死宅——————</span>
+        </div>
+        <div class="goods-banner">
+            <img src="{% static 'img/goodsbanner-4.jpg' %}">
+        </div>
+        <div class="goods-nav">
+            <div class="goods2-nav-list">洗发护发</div>
+            <div class="goods2-nav-list">沐浴清洁</div>
+            <div class="goods2-nav-list">家居用品</div>
+            <div class="goods2-nav-list">口腔护理</div>
+            <div class="goods2-nav-list">洗护工具</div>
+        </div>
+        <div class="goods-detail">
+            <img src="{% static 'img/goodsbanner-4.jpg' %}">
+        </div>
+        <div class="goods-footer">
+            <a href="" class="goods-more">更多时尚服饰配饰</a>
+        </div>
+    </div>
+    <div class="goods-show">
+        <div class="goods-title">
+            <span class="goods-title-1">营养保健</span>
+            <span class="goods-title-2">——————爱父母，爱自己，什么时候都不嫌晚——————</span>
+        </div>
+        <div class="goods-banner">
+            <img src="{% static 'img/goodsbanner-5.jpg' %}">
+        </div>
+        <div class="goods-nav">
+            <div class="goods2-nav-list">美容美颜</div>
+            <div class="goods2-nav-list">纤体瘦身</div>
+            <div class="goods2-nav-list">男性雄风</div>
+            <div class="goods2-nav-list">呵护老人</div>
+            <div class="goods2-nav-list">综合保健</div>
+        </div>
+        <div class="goods-detail">
+            <img src="{% static 'img/goodsbanner-7.jpg' %}">
+        </div>
+        <div class="goods-footer">
+            <a href="" class="goods-more">更多营养保健用品</a>
+        </div>
+    </div>
+    <div class="goods-show">
+        <div class="goods-title">
+            <span class="goods-title-1">海外直邮</span>
+            <span class="goods-title-2">——————畅购全球好货，打造品质生活——————</span>
+        </div>
+        <div class="goods-banner">
+            <img src="{% static 'img/goodsbanner-6.jpg' %}">
+        </div>
+        <div class="goods-nav">
+            <div class="goods2-nav-list">美容美颜</div>
+            <div class="goods2-nav-list">纤体瘦身</div>
+            <div class="goods2-nav-list">男性雄风</div>
+            <div class="goods2-nav-list">呵护老人</div>
+            <div class="goods2-nav-list">综合保健</div>
+        </div>
+        <div class="goods-detail">
+            <img src="{% static 'img/goodsbanner-7.jpg' %}">
+        </div>
+        <div class="goods-footer">
+            <a href="" class="goods-more">更多海外直邮好货</a>
+        </div>
+    </div>
+    <div class="goods-show">
+        <div class="goods-title">
+            <span class="goods-title-1">数码家电</span>
+            <span class="goods-title-2">——————智能时代，生活可以这般简单极致——————</span>
+        </div>
+        <div class="goods-banner">
+            <img src="{% static 'img/goodsbanner-7.jpg' %}">
+        </div>
+        <div class="goods-nav">
+            <div class="goods2-nav-list">美容美颜</div>
+            <div class="goods2-nav-list">纤体瘦身</div>
+            <div class="goods2-nav-list">男性雄风</div>
+            <div class="goods2-nav-list">呵护老人</div>
+            <div class="goods2-nav-list">综合保健</div>
+        </div>
+        <div class="goods-detail">
+            <img src="{% static 'img/goodsbanner-1.jpg' %}">
+        </div>
+        <div class="goods-footer">
+            <a href="" class="goods-more">更多海外直邮好货</a>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="footer-1">
+        <div class="footer-1-1">
+            <ul>
+                <li class="footer-li">
+                    <i class="zheng-pic-1"></i>
+                    <strong class="tit">100%正品</strong>
+                    <span class="desc">全球正品 品质保证</span>
+                </li>
+                <li class="footer-li">
+                    <i class="zheng-pic-2"></i>
+                    <strong class="tit">100%正品</strong>
+                    <span class="desc">全球正品 品质保证</span>
+                </li>
+                <li class="footer-li">
+                    <i class="zheng-pic-3"></i>
+                    <strong class="tit">100%正品</strong>
+                    <span class="desc">全球正品 品质保证</span>
+                </li>
+                <li class="footer-li">
+                    <i class="zheng-pic-4"></i>
+                    <strong class="tit">100%正品</strong>
+                    <span class="desc">全球正品 品质保证</span>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-1-2">
+            <div class="guidelist">
+                <ul class="clearfix">
+                    <li class="bd-none" style="width: 194px;padding-right: 40px;padding-left: 30px;border: none;">
+                        <a href="" class="kaolalogo"><img src="{% static 'img/logo.jpg' %}" width="200px" height="43px"></a>
+                        <div class="focuson">
+                            <span>关注我们</span>
+                            <i class="itm-1"></i>
+                            <i class="itm-2"></i>
+                            <i class="itm-3"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>考拉保证</dt>
+                            <dd><a href="">正品保证</a></dd>
+                            <dd><a href="">廉政监督</a></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>新手指南</dt>
+                            <dd><a href="">购物流程</a></dd>
+                            <dd><a href="">支付方式</a></dd>
+                            <dd><a href="">通关税费</a></dd>
+                            <dd><a href="">常见问题</a></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>售后服务</dt>
+                            <dd><a href="">退货政策</a></dd>
+                            <dd><a href="">退货流程</a></dd>
+                            <dd><a href="">退款说明</a></dd>
+                            <dd><a href="">联系客服</a></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>物流配送</dt>
+                            <dd><a href="">配送方式</a></dd>
+                            <dd><a href="">配送方式</a></dd>
+                            <dd><a href="">配送方式</a></dd>
+                            <dd><a href="">配送方式</a></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>关于我们</dt>
+                            <dd><a href="">联系我们</a></dd>
+                            <dd><a href="">联系我们</a></dd>
+                            <dd><a href="">联系我们</a></dd>
+                            <dd><a href="">联系我们</a></dd>
+                        </dl>
+                    </li>
+                    <li class="telphone-ewm">
+                        <img src="{% static 'picture/2dcode-app.jpg' %}">
+                        <span>扫描下载手机版</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-2">
+        <div class="bottomTxt">
+            <p>
+                <a href="#">About NetEase</a> - <a href="#">公司简介</a> - <a href="#">联系方法</a> - <a href="#">友情链接</a> - <a
+                    href="#">招聘信息</a> - <a href="#">客户服务 </a> - <a href="#">隐私政策</a> - <a href="#">网络营销</a> - <a
+                    href="#">网络地图</a> - <a href="#">网易考拉海购</a>
+            </p>
+            <p>
+                <a class="spanW" href="#"><img src="{% static 'picture/f28aa8ee818a42bf832341f605eccefb.png' %}"></a>浙公网安备
+                33010002000066号&nbsp;&nbsp;增值电信业务经营许可证：浙B2-20090185-3&nbsp;&nbsp;网络文化经营许可证：浙网文[2016]0155-055号&nbsp;&nbsp;网络文化经营许可证：浙网文[2016]0155-055号
+            </p>
+            <p>
+                <span class="spanWrap"><img
+                        src="{% static 'picture/d720d83b55a04b6f932ea845c673c5bf.png' %}"></span><span class="spanWrap"><img
+                    src="{% static 'picture/guohui.jpg' %}"></span>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="right-nav">
+    <div class="right-nav-1">
+        <img src="{% static 'img/bgtab.png' %}">
+    </div>
+    <ul>
+        <li>母婴儿童</li>
+        <li>母婴儿童</li>
+        <li>母婴儿童</li>
+        <li>母婴儿童</li>
+        <li>母婴儿童</li>
+        <li>母婴儿童</li>
+        <li>母婴儿童</li>
+    </ul>
+    <div class="right-nav-2">
+        <img src="{% static 'img/bgtab.png' %}">
+    </div>
+</div>
+
+
+</body>
+</html>

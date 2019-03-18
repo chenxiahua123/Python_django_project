@@ -1,0 +1,477 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>购物车-网易考拉海购</title>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="email=no" name="format-detection"/>
+    <meta name="keywords" content="跨境,海淘,进口,母婴用品,美妆个护,美食保健,美妆个护,海淘,商城"/>
+    <meta name="description" content="网易考拉海购-安全、放心的跨境海淘网站，官方认证，正品保证。轻松购遍海外进口母婴，进口美食 ，进口美妆、进口电子数码，更多产品正陆续推出。"/>
+    <meta name="renderer" content="webkit">
+    <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="{% static 'js/jquery.cookie.js' %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static 'js/cart2.js' %}" type="text/javascript" charset="utf-8"></script>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.1/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}"/>
+    <style type="text/css">
+        .bg {
+            position: absolute;
+            right: 38px;
+            top: 40px;
+            width: 290px;
+            height: 20px;
+            background: url(img/steps.png) no-repeat;
+        }
+
+        .mian {
+            width: 1090px;
+            padding: 0;
+            margin-top: -24px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .cart_box {
+            width: 100%;
+        }
+
+        .m_cart_box {
+            margin-top: 40px;
+        }
+
+        .head {
+            color: #999999;
+            overflow: hidden;
+        }
+
+        .col1 {
+            width: 114px;
+            float: left;
+            padding: 0 10px;
+        }
+
+        .u_chk {
+            width: 17px;
+            height: 18px;
+            display: inline-block;
+        }
+
+        .col2 {
+            width: 380px;
+            float: left;
+            padding: 0 10px;
+        }
+
+        .col3 {
+            width: 132px;
+            float: left;
+            padding: 0 10px;
+        }
+
+        .col4 {
+            width: 140px;
+            float: left;
+            padding: 0 10px;
+        }
+
+        .col5 {
+            width: 100px;
+            float: left;
+            padding: 0 10px;
+        }
+
+        .col6 {
+            width: 110px;
+            float: left;
+            padding: 0 7px;
+            text-align: left;
+        }
+
+        .m_cart {
+            margin-top: 15px;
+            color: #333333;
+        }
+
+        .ware {
+            padding: 10px 0 15px 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333333;
+        }
+
+        .warename {
+            margin-left: 3px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .goods {
+            border: 1px solid #EAEAEA;
+        }
+
+        .m_goods {
+            list-style: none;
+        }
+
+        .goodsitm {
+            border-bottom: 1px solid #EAEAEA;
+            display: table;
+            height: 120px;
+        }
+
+        .col10 {
+            padding-right: 0;
+            width: 37px;
+            position: relative;
+            display: table-cell;
+            float: none;
+            padding: 0 10px;
+            vertical-align: middle;
+        }
+
+        .col12 {
+            padding: 0 80px 0 0;
+            width: 425px;
+            float: none;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .imgwrap {
+            float: left;
+            width: 80px;
+            height: 80px;
+        }
+
+        .imgwrap img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .textwrap {
+            margin-left: 20px;
+            width: 310px;
+            float: left;
+        }
+
+        .goodstit {
+            height: 36px;
+            line-height: 18px;
+            overflow: hidden;
+        }
+
+        .goodstit a {
+            color: #333333;
+            font-size: 14px;
+            display: block;
+            line-height: 18px;
+            font-weight: normal;
+        }
+
+        .col13 {
+            width: 102px;
+            font: none;
+            display: table-cell;
+            vertical-align: middle;
+            padding: 0 10px;
+        }
+
+        .oldprice {
+            color: #999999;
+            display: block;
+            width: 100px;
+            text-align: left;
+        }
+
+        .newprice {
+            font-weight: bold;
+            font-size: 14px;
+            color: #333333;
+            display: block;
+            width: 55px;
+            text-align: left;
+        }
+
+        .u_acttag {
+            display: inline-block;
+            zoom: 1;
+            padding: 0 8px;
+            border: 1px solid #e31436;
+            margin: 3px 0 0;
+            height: 18px;
+            line-height: 18px;
+            text-align: center;
+            font-size: 12px;
+            color: #E31436;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+
+        .col14 {
+            width: 152px;
+            float: none;
+            display: table-cell;
+            vertical-align: middle;
+            padding: 0 10px;
+        }
+
+        .ctrnum_wrap {
+            display: inline-block;
+            border: 1px solid #CCCCCC;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .add, .raduce {
+            color: #ccc;
+            background: #F3F3F3;
+            cursor: default;
+            border: 1px solid #ccc;
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            line-height: 22px;
+            font-family: iconfont;
+            text-decoration: none;
+            text-align: center;
+            float: left;
+        }
+
+        .ctrnum {
+            width: 38px;
+            padding: 4px 5px;
+            margin: 0;
+            line-height: 1;
+            height: 14px;
+            font-size: 14px;
+            text-align: center;
+            color: #333;
+            border: none;
+            box-sizing: content-box;
+            float: left;
+            border: #bcbcbc 1px solid;
+            border-width: 1px 0;
+        }
+
+        .col15 {
+            float: none;
+            display: table-cell;
+            vertical-align: middle;
+            width: 100px;
+            padding: 0 10px;
+            text-align: center;
+        }
+
+        .sum {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .col16 {
+            float: none;
+            display: table-cell;
+            vertical-align: middle;
+            width: 110px;
+            padding: 0 7px;
+            text-align: left;
+        }
+
+        .u_opt {
+            display: block;
+            margin-top: 6px;
+            color: #333333;
+            cursor: pointer;
+        }
+
+        .cartinfo {
+            padding: 10px 43px 10px 20px;
+            text-align: right;
+            white-space: nowrap;
+            border: 1px solid #EAEAEA;
+            overflow: hidden;
+        }
+
+        .taxnum, .allsum, .discunt {
+            display: inline-block;
+            zoom: 1;
+            margin-right: 20px;
+            font-size: 12px;
+        }
+
+        .totalbox {
+            height: 62px;
+            position: relative;
+            margin-top: 35px;
+            border: 1px solid #EAEAEA;
+            background: #F8F8F8;
+        }
+
+        .gobuy {
+            height: 62px;
+            width: 120px;
+            line-height: 62px;
+            text-align: center;
+            background: #e31436;
+            color: #FFFFFF;
+            font-size: 18px;
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="header-1">
+        <div class="topnav">
+            <div class="topnav-left-1">
+                考拉欢迎您！
+                {% if token %}
+                    <span id="user-ifo">
+                                <span>{{ user.account }}</span>
+						</span>
+                {% else %}
+                    <span id="user-ifo">
+                                <a href="login.html">登录</a>
+                                <span>|</span>
+							    <a href="register.html">免费注册</a>
+						</span>
+                {% endif %}
+            </div>
+            <div class="topnav-left-2">
+                <div id="tel-img"></div>
+                <a href="#" id="tel-word">手机考拉海购 </a>
+            </div>
+            <div id="tel-ewmimg">
+                <img src="{% static 'picture/2dcode-app3.jpg' %}" height="116px" width="116px"/>
+                <p><strong>下载app</strong></p>
+                <p><strong>赢取1000元新人大礼包</strong></p>
+            </div>
+
+            <div class="topnav-right">
+                <ul>
+                    <li>
+                        <a href="{% url 'app:index' %}"><span class="qiandao"></span>Home</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="#">我的订单</a>
+                        <span>|</span>
+                    </li>
+                    <li class="person-home-1">
+                        <a href="#">个人中心</a>
+                        <span>|</span>
+                    </li>
+                    <li class="person-home-2">
+                        <a href="#">客户服务</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="#">游戏充值</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="#">消费者告知书</a>
+                        <span>|</span>
+                    </li>
+                    <li class="person-home-3">
+                        <a href="#">更多</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="person-home-inner-1">
+                <a href="#">我的优惠卷</a>
+                <a href="#" style="border-bottom:1px solid #EDEDEE;">我的考拉豆</a>
+                <a href="#">账户安全</a>
+                <a href="#" style="border-bottom:1px solid #EDEDEE ;">我的实名认证</a>
+                <a href="#">我收藏的商品</a>
+                <a href="#" style="border-bottom:1px solid #EDEDEE ;">我关注的品牌</a>
+                <a href="#">售后管理</a>
+            </div>
+            <div class="person-home-inner-2">
+                <span class="small-pic-1"></span>
+                <a href="#" style='padding-left:15px'>联系客服</a>
+                <span class="small-pic-2"></span>
+                <a href="#" style='padding-left:15px'>帮助中心</a>
+            </div>
+            <div class="person-home-inner-3">
+                <a href="#">收藏本站</a>
+                <a href="#" style="border-bottom:1px solid #EDEDEE;">新浪微博</a>
+                <a href="#">账户安全</a>
+                <a href="#" style="border-bottom:1px solid #EDEDEE ;">微信公众号</a>
+                <a href="#">易信公众号</a>
+                <a href="#" style="border-bottom:1px solid #EDEDEE ;">招商合作</a>
+                <a href="#">考拉招聘</a>
+            </div>
+        </div>
+    </div>
+    <div class="header-2">
+        <div class="header-2-inner">
+            <a href="index.html" class="logo">
+                <img src="{% static 'img/logo.jpg' %}"/>
+            </a>
+            <span class="bg"></span>
+        </div>
+    </div>
+</div>
+<div class="mian">
+    <div class="cart_box">
+        <div class="m_cart_box">
+            <div class="head">
+                <div class="col1">
+                    <input type="checkbox" name="selectall" class="u_chk" isall="{{ isall }}"/>
+                    <label for="selectall">全选</label>
+                </div>
+                <div class="col2">商品信息</div>
+                <div class="col3">单价（元）</div>
+                <div class="col4">数量</div>
+                <div class="col5">金额（元）</div>
+                <div class="col6">操作</div>
+            </div>
+            <div class="m_cart">
+                <div class="ware">
+                    <ul>
+                        {% for cart in carts %}
+                            <li>
+                                <input type="checkbox" name="cartall" cartid="{{ cart.id }}" isselect="{{ cart.isselect }}"/>
+                                <span class="warename"><img src="/static/{{ cart.goods.img }}" style="width: 15%;height: 15%"></span>
+                                <span class="price">{{ cart.goods.price }}</span>
+                                <span class="number">{{ cart.number }}</span>
+                                <span class="total_1">1000</span>
+                                <span class="glyphicon glyphicon-remove" id="cross" cartid="{{ cart.id }}"></span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+                <div class="goods">
+                    <ul class="m_goods"></ul>
+                    <div class="cartinfo">
+                        <span class="discunt"></span>
+                        <div class="allsum">
+									<span>
+										商品应付总计：
+										<strong class="totalnum" style="font-size: xx-large"></strong>
+									</span>
+                        </div>
+                        <div class="taxnum">
+                            <em class="tt"></em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="totalbox">
+                <div class="gobuy">
+                    <a href="{% url 'app:generateorder' %}">去结算</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+
+</div>
+</body>
+</html>
